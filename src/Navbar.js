@@ -19,6 +19,9 @@ const Navbar = () => {
 
         <div className="end">
           <ul>
+            <Link style={navStyle} to="/">
+              <li>Home</li>
+            </Link>
             <Link style={navStyle} to="/About">
               <li>About</li>
             </Link>

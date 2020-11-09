@@ -10,10 +10,10 @@ const Home = () => {
     const response = await fetch(
       `https://www.googleapis.com/books/v1/volumes?q=${user}&key=${ApiKey}`
     );
-    const data = await response.json();
-    setUserData(data);
+    const { items } = await response.json();
+    setUserData(items);
 
-    console.log(data);
+    console.log(items);
   };
 
   return (
@@ -27,6 +27,11 @@ const Home = () => {
       />
 
       <button onClick={click}>Search</button>
+      {userData.map((value) => (
+        <ul>
+          <li>{value.volumeInfo.title}</li>
+        </ul>
+      ))}
     </div>
   );
 };
